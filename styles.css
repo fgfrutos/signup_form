@@ -2,7 +2,7 @@
     --primary-color: rgb(9, 105, 218);
     --primary-color-focus: #0969da;
     --error-color: #dc3545;
-
+    --padding-desktop: calc(((100vh - 450px)/2)/3);
     font-size: 10px;
 }
 
@@ -167,7 +167,18 @@ a:not(:hover) {
     .main-container {
         flex-direction: row;
     }
+    .content {
+        padding-top: max(calc(var(--padding-desktop)/2), 20px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
+    .separator {
+        padding: max(var(--padding-desktop), 20px) 0;
+    }
+  
     .separator > h2 {
         width: calc(180px*2 + 20px);
         justify-content: flex-start;
@@ -175,6 +186,8 @@ a:not(:hover) {
 
     .button-container {
         align-items: flex-start;
+        padding-bottom: max(calc(var(--padding-desktop)/2), 10px);
+
     }
 
     .button-container > p {
