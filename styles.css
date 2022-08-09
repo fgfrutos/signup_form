@@ -1,6 +1,8 @@
 :root {
     --primary-color: rgb(9, 105, 218);
     --primary-color-focus: #0969da;
+    --error-color: #dc3545;
+
     font-size: 10px;
 }
 
@@ -21,6 +23,7 @@ body {
 }
 
 .logo-container {
+    font-size: 2rem;
     background: 
     linear-gradient(
         rgba(0, 0, 0, 0.3),
@@ -50,21 +53,36 @@ img {
 .content > h2 {
     margin: 15px 0;
 }
+.background-container {
+    background-color: white;
+}
+
+.background-container > h2 {
+    position: relative;
+    top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
 .separator {
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    padding-bottom: 40px;
+    gap: 20px
+}
+.group {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 20px 0;
 }
 
-.label-input:last-child {
-    margin-bottom: 10px;
-}
 .label-input {
     display: flex;
     flex-direction: column;
@@ -76,6 +94,7 @@ img {
 input {
     border-radius: 3px;
     outline: none;
+    border: 1px solid;
     border-color: rgb(235, 235, 235);
     box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.07);
     padding: 5px;
@@ -86,10 +105,21 @@ input:hover {
     box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
 }
 
-input:focus {
+/*:not is super useful when creating conditional classes*/
+input:focus:not(.invalid) {
     border-color: var(--primary-color);
     box-shadow: 0 0 3px var(--primary-color-focus) !important;
     -webkit-box-shadow: 0 0 3px var(--primary-color-focus) !important;
+}
+
+.invalid {
+    border-color: var(--error-color);
+    box-shadow: 0 0 3px var(--error-color) !important;
+    -webkit-box-shadow: 0 0 3px var(--error-color) !important;
+}
+
+.label-input > p {
+    color: var(--error-color);
 }
 
 .button-container {
@@ -100,7 +130,6 @@ input:focus {
 button {
     padding: 10px 20px;
     background-color: var(--primary-color);
-    margin-bottom: 10px;
     border-radius: 3px;
     color: #fff;
     border: 0px;
@@ -123,4 +152,34 @@ button:active{
 
 a:not(:hover) {
     text-decoration: none;
+}
+
+@media only screen and (min-width: 700px){
+    .group {
+        flex-direction: row;
+    }
+    .logo-container {
+        height: 100vh;
+        flex: 4;
+    }
+    .main-container {
+        flex-direction: row;
+    }
+
+    .background-container > h2 {
+        text-align: left;
+        padding-left: 52px;
+    }
+
+    .button-container {
+        align-items: flex-start;
+    }
+
+    .button-container > p {
+        margin-left: 30px;
+    }
+
+    button {
+        margin-left: 30px;
+    }
 }
