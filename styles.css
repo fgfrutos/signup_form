@@ -90,6 +90,7 @@ img {
 
 
 input {
+    -webkit-appearance: none;
     border-radius: 3px;
     outline: none;
     border: 1px solid;
@@ -97,6 +98,7 @@ input {
     box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.07);
     padding: 5px;
     transition: ease-in 0.20s;
+    color: #222222;
 }
 
 input:hover {
@@ -116,8 +118,14 @@ input:focus:not(.invalid) {
     -webkit-box-shadow: 0 0 3px var(--error-color) !important;
 }
 
+.space {
+    height: calc(1rem + 1px);
+    display: none;
+}
+
 .label-input > p {
     color: var(--error-color);
+    font-size: 1rem;
 }
 
 .button-container {
@@ -155,6 +163,12 @@ a:not(:hover) {
 @media only screen and (min-width: 700px){
     .group {
         flex-direction: row;
+        padding-left: 30px;
+        align-items: flex-start;
+    }
+
+    .separator > h2 {
+        padding-left: 30px;
     }
     .logo-container {
         height: 100vh;
@@ -168,7 +182,7 @@ a:not(:hover) {
         flex-direction: row;
     }
     .content {
-        padding-top: max(calc(var(--padding-desktop)/2), 20px);
+        padding-top: max(calc(var(--padding-desktop)/2), 0px);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -176,7 +190,8 @@ a:not(:hover) {
     }
 
     .separator {
-        padding: max(var(--padding-desktop), 20px) 0;
+        padding: max(var(--padding-desktop), 10px) 0;
+        align-items: flex-start;
     }
   
     .separator > h2 {
@@ -186,7 +201,7 @@ a:not(:hover) {
 
     .button-container {
         align-items: flex-start;
-        padding-bottom: max(calc(var(--padding-desktop)/2), 10px);
+        padding-bottom: max(calc(var(--padding-desktop)/2), 0px);
 
     }
 
